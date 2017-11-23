@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1B1CC33-ED23-4F0B-9C79-A2EA83B62C3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CQRSExample.ProductApi.Domain</RootNamespace>
+    <AssemblyName>CQRSExample.ProductApi.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.7.2.0\lib\net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandHandler\CommandHandler.cs" />
+    <Compile Include="CommandHandler\ProductOptionCommandHandler.cs" />
+    <Compile Include="CommandHandler\ProductCommandHandler.cs" />
+    <Compile Include="Commands\ProductOption\DeleteProductOptionCommand.cs" />
+    <Compile Include="Commands\ProductOption\UpdateProductOptionCommand.cs" />
+    <Compile Include="Commands\ProductOption\CreateProductOptionCommand.cs" />
+    <Compile Include="Commands\Product\DeleteProductCommand.cs" />
+    <Compile Include="Commands\Product\UpdateProductCommand.cs" />
+    <Compile Include="Commands\Product\CreateProductCommand.cs" />
+    <Compile Include="Interfaces\Repository\IProductOptionRepository.cs" />
+    <Compile Include="Interfaces\Repository\IProductRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRepository.cs" />
+    <Compile Include="Interfaces\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductOption.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ProductOption\GetAllProductOptionsQuery.cs" />
+    <Compile Include="Queries\ProductOption\GetProductOptionQuery.cs" />
+    <Compile Include="Queries\Product\GetAllProductsQuery.cs" />
+    <Compile Include="Queries\Product\GetProductByIdQuery.cs" />
+    <Compile Include="Queries\Product\SearchProductByNameQuery.cs" />
+    <Compile Include="QueryHandler\ProductOptionQueryHandler.cs" />
+    <Compile Include="QueryHandler\ProductsQueryHandler.cs" />
+    <Compile Include="Validations\ProductOptions\CreateProductOptionCommandValidation.cs" />
+    <Compile Include="Validations\ProductOptions\UpdateProductOptionCommandValidation.cs" />
+    <Compile Include="Validations\Product\UpdateProductCommandValidation.cs" />
+    <Compile Include="Validations\Product\CreateProductCommandValidation.cs" />
+    <Compile Include="Validations\ValidatorHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
